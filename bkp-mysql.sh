@@ -24,6 +24,6 @@ databases=`mysql -u $USER -p$PASSWORD -e "SHOW DATABASES;" | tr -d "| " | egrep 
 
 for db in $databases; do
     echo "Dumping database: $db"
-    mysqldump -u $USER -p$PASSWORD --databases $db > $db.backup-`date +%Y%m%d`.sql
+    mysqldump -u $USER -p$PASSWORD --databases $db > $BKP/$db.backup-`date +%Y%m%d`.sql
     gzip $BKP/$db.backup-`date +%Y%m%d`.sql
 done
